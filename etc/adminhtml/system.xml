@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 Moosend. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="moosend_mootracker_settings" translate="label" sortOrder="500">
+            <label>Moosend Website Tracking</label>
+        </tab>
+        <section id="mootracker_site_id_section" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Website ID</label>
+            <tab>moosend_mootracker_settings</tab>
+            <resource>Moo_Tracker::site_id</resource>
+            <group id="mootracker_group_site_id" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Unique Website ID</label>
+                <field id="mootracker_site_id" sortOrder="100" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enter your Website ID</label>
+                    <comment>Please find your Website ID by clicking the corresponding Tracked Website under your account settings of your Moosend Account (Account > Tracked Websites).</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © 2017 Moosend, Inc. All rights reserved.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Moosend\Website_Tracking\Block\TrackPageView */ ?>
+<?php $block->initializeTracker(); ?>
+<!-- Moosend Website Tracking -->
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Moosend_WebsiteTracking/js/moosend-website-tracking": {
+        	"data": <?=  json_encode($block->getTrackingData()) ?>
+        }
+    }
+}
+</script>
+<!-- Moosend Website Tracking -->

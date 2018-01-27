@@ -1,0 +1,31 @@
+{
+    "name": "moosend/module-mootracker",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Yannis Psarras",
+            "email": "yannis@moosend.com"
+        }
+    ],
+    "require": {
+        "moosend/website-tracking": "^1.12"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Moosend\\WebsiteTracking\\": ""
+        }
+    },
+    "scripts": {
+        "test": "phpunit --colors=always --debug",
+        "start": "php -S localhost:8080",
+        "deploy": "dep staging"
+    }
+}
