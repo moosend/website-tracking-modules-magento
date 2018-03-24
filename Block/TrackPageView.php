@@ -122,7 +122,6 @@ class TrackPageView extends Template
         $product_id = $this->getCurrentProductId();
         $product = $this->productFactory->create()->load($product_id);
         $store = $this->storeManager->getStore();
-
         $productImageUrl = $store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'catalog/product' . $product->getImage();
 
         $properties = array(

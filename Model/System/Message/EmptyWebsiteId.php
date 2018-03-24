@@ -5,8 +5,8 @@
 namespace Moosend\WebsiteTracking\Model\System\Message;
 
 use \Magento\Framework\Notification\MessageInterface;
-use \Magento\Framework\App\Config\ScopeConfigInterface;
 use \Magento\Framework\UrlInterface;
+use \Magento\Framework\App\Config\ScopeConfigInterface;
 use \Magento\Store\Model\ScopeInterface;
 
 class EmptyWebsiteId implements MessageInterface
@@ -67,10 +67,10 @@ class EmptyWebsiteId implements MessageInterface
     {
         $url = $this->urlBuilder->getUrl(
             'adminhtml/system_config/edit',
-            array(
+            [
                 'section' => 'mootracker_site_id_section',
                 '_fragment' => self::PATH_TO_WEBSITE_ID_CONFIGURATION
-            )
+            ]
         );
         return __(
             'In order to make it work, Moosend Email Marketing requires a Website ID. <a href="%1">Click here to update your Website ID</a>',

@@ -67,10 +67,10 @@ class CheckoutCartAddProductCompleteObserverTest extends \PHPUnit\Framework\Test
         $this->observer = $objectManager->getObject(
             CheckoutCartAddProductCompleteObserver::class,
             array(
-                'configInterface'	=>	$this->scopeConfigMock,
-                'imageHelper'	=>	$this->imageHelperMock,
-                'helper'	=>	$this->helperMock,
-                'trackerFactory'	=>	$this->trackerFactoryMock
+                'configInterface'   =>  $this->scopeConfigMock,
+                'imageHelper'   =>  $this->imageHelperMock,
+                'helper'    =>  $this->helperMock,
+                'trackerFactory'    =>  $this->trackerFactoryMock
             )
         );
     }
@@ -121,41 +121,6 @@ class CheckoutCartAddProductCompleteObserverTest extends \PHPUnit\Framework\Test
         $this->observer->execute($this->getObserverMock(true));
     }
 
-    public function testItShouldThrowAnExceptionIfCartParametersAreIncorrect()
-    {
-        $this->scopeConfigMock->method('getValue')
-            ->willReturn($this->dbValue);
-        $productId = 1;
-        $price = 20.00;
-        $productUrl = 'https://localhost/some-product';
-        $productName = 'Some Product';
-        $productImage = 'https://localhost/some-product.png';
-        $quantiy = 2;
-        $total = $price * $quantiy;
-
-        $this->productMock = $this->getMockBuilder(\Magento\Catalog\Model\Product::class)
-            ->disableOriginalConstructor()
-            ->setMethods(array('load', 'getId', 'getImage', 'getFinalPrice', 'getName', 'getProductUrl', 'getTypeInstance', 'getCategoryIds', 'isInStock', 'getQty'))
-            ->getMock();
-        $productImageMock = $this->getMockBuilder(\Magento\Catalog\Model\Product\Image::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $trackerMock = $this->getMockBuilder(\Moosend\Tracker::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $typeInstanceMock = $this->getMockBuilder(\Magento\Bundle\Model\Product\Type::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $this->trackerFactoryMock->expects($this->once())->method('create')->with($this->dbValue)->will($this->returnValue($trackerMock));
-
-        $this->imageHelperMock->expects($this->once())->method('init')->with($this->productMock, 'product_page_image_large')->will($this->returnValue($productImageMock));
-        $this->productMock->expects($this->once())->method('getTypeInstance')->with(true)->willReturn($typeInstanceMock);
-        $this->productMock->expects($this->once())->method('getCategoryIds')->will($this->returnValue(array(1, 2)));
-        $trackerMock->expects($this->once())->method('addToOrder')->with($productId)->willThrowException(new \Exception);
-        $this->observer->execute($this->getObserverMock(true));
-    }
-
     public function getObserverMock($hasSiteId = false)
     {
         $eventObserverMock = $this->getMockBuilder(\Magento\Framework\Event\Observer::class)
@@ -167,7 +132,7 @@ class CheckoutCartAddProductCompleteObserverTest extends \PHPUnit\Framework\Test
 
         if ($hasSiteId) {
             $eventObserverMock->expects($this->once())->method('getEvent')->will($this->returnValue($eventMock));
-            $eventMock->expects($this->once())->method('getData')->will($this->returnValue(array('product'	=>	$this->productMock)));
+            $eventMock->expects($this->once())->method('getData')->will($this->returnValue(array('product'  =>  $this->productMock)));
         }
 
         return $eventObserverMock;

@@ -17,6 +17,10 @@ class CheckoutCartAddProductCompleteObserver implements ObserverInterface
      */
     protected $configInterface;
     /**
+     * @var \Moosend\TrackerFactory
+     */
+    protected $trackerFactory;
+    /**
      * @var \Magento\Catalog\Helper\Image
      */
     protected $imageHelper;
@@ -24,10 +28,6 @@ class CheckoutCartAddProductCompleteObserver implements ObserverInterface
      * @var \Moosend\WebsiteTracking\Helper\Data
      */
     protected $helper;
-    /**
-     * @var \Moosend\TrackerFactory
-     */
-    protected $trackerFactory;
 
     /**
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $configInterface
@@ -39,8 +39,8 @@ class CheckoutCartAddProductCompleteObserver implements ObserverInterface
     {
         $this->configInterface = $configInterface;
         $this->imageHelper = $imageHelper;
-        $this->helper = $helper;
         $this->trackerFactory = $trackerFactory;
+        $this->helper = $helper;
     }
 
     /**
@@ -73,10 +73,6 @@ class CheckoutCartAddProductCompleteObserver implements ObserverInterface
         $props = $this->helper->formatProductOptions($productConfigurations);
         $props['itemCategory'] = $this->helper->getProductCategoryNames($product->getCategoryIds());
 
-        try {
-            $tracker->addToOrder($id, $price, $url, $quantity, $total, $name, $image, $props);
-        } catch (\Exception $err) {
-            trigger_error('Could not track events for MooTracker', E_USER_WARNING);
-        }
+        $tracker->addToOrder($id, $price, $url, $quantity, $total, $name, $image, $props, true);
     }
 }
