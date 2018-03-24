@@ -1,4 +1,4 @@
-<?php
+<?php namespace Moosend\WebsiteTracking\Test\Unit\Observer;
 
 use \Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 use \Moosend\WebsiteTracking\Observer\CheckoutCartAddProductCompleteObserver;

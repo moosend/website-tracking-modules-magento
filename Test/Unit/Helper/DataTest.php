@@ -1,4 +1,4 @@
-<?php
+<?php namespace Moosend\WebsiteTracking\Test\Unit\Helper;
 
 use \Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 use \Moosend\WebsiteTracking\Helper\Data;

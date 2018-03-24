@@ -1,4 +1,4 @@
-<?php
+<?php namespace Moosend\WebsiteTracking\Test\Unit\Model\System\Message;
 
 use \Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 use \Moosend\WebsiteTracking\Model\System\Message\EmptyWebsiteId;
