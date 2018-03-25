@@ -105,15 +105,15 @@ class TrackPageViewTest extends \PHPUnit\Framework\TestCase
         $this->trackPageViewBlock = $objectManager->getObject(
             TrackPageView::class,
             array(
-                '_scopeConfig'	=>	$this->scopeConfigMock,
-                'context'	=>	$contextMock,
-                'registry'	=>	$this->registryMock,
-                'request'	=>	$this->requestMock,
-                'productFactory'	=>	$this->productFactoryMock,
-                'sessionFactory'	=>	$this->sessionFactoryMock,
-                'storeManager'	=>	$this->storeManagerMock,
-                'trackerFactory'	=>	$this->trackerFactoryMock,
-                'helper'	=>	$this->websiteTrackingDataMock
+                '_scopeConfig'  =>  $this->scopeConfigMock,
+                'context'   =>  $contextMock,
+                'registry'  =>  $this->registryMock,
+                'request'   =>  $this->requestMock,
+                'productFactory'    =>  $this->productFactoryMock,
+                'sessionFactory'    =>  $this->sessionFactoryMock,
+                '_storeManager' =>  $this->storeManagerMock,
+                'trackerFactory'    =>  $this->trackerFactoryMock,
+                'helper'    =>  $this->websiteTrackingDataMock
             )
         );
     }
@@ -179,8 +179,8 @@ class TrackPageViewTest extends \PHPUnit\Framework\TestCase
 
         $expectedValue = array(
             array(
-                'product'	=>	array(
-                    'itemCode'	=>	$productId,
+                'product'   =>  array(
+                    'itemCode'  =>  $productId,
                     'itemPrice' => $productPrice,
                     'itemUrl' => $productUrl,
                     'itemQuantity' => $productQuantity,
@@ -228,8 +228,8 @@ class TrackPageViewTest extends \PHPUnit\Framework\TestCase
         $this->sessionFactoryMock->expects($this->once())->method('create')->will($this->returnValue($sessionMock));
 
         $expectedValue = array(
-            'name'	=>	$customerName,
-            'email'	=>	$customerEmail
+            'name'  =>  $customerName,
+            'email' =>  $customerEmail
         );
 
         $this->assertEquals($expectedValue, $this->trackPageViewBlock->getUserData());
@@ -274,16 +274,16 @@ class TrackPageViewTest extends \PHPUnit\Framework\TestCase
         $this->sessionFactoryMock->expects($this->once())->method('create')->will($this->returnValue($sessionMock));
 
         $expectedResult = array(
-            'current_website_id'	=>	$this->dbValue,
-            'is_product_page'	=>	false,
-            'current_product'	=>	false,
-            'cookie_names'	=>	array(
+            'current_website_id'    =>  $this->dbValue,
+            'is_product_page'   =>  false,
+            'current_product'   =>  false,
+            'cookie_names'  =>  array(
                 'website_id' => 'MOOSEND_SITE_ID',
                 'user_id' => 'MOOSEND_USER_ID',
                 'email' => 'USER_EMAIL'
             ),
-            'order_info'	=>	null,
-            'user_data'	=>	array(
+            'order_info'    =>  null,
+            'user_data' =>  array(
                 'name' => 'John Smith',
                 'email' => null
             )

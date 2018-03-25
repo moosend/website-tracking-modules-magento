@@ -10,7 +10,6 @@ use \Magento\Framework\Registry;
 use \Magento\Framework\App\Request\Http;
 use \Magento\Catalog\Model\ProductFactory;
 use \Magento\Customer\Model\SessionFactory;
-use \Magento\Store\Model\StoreManagerInterface;
 use \Moosend\WebsiteTracking\Helper\Data;
 use \Moosend\TrackerFactory;
 use \Moosend\CookieNames;
@@ -41,11 +40,6 @@ class TrackPageView extends Template
     protected $sessionFactory;
 
     /**
-     * @var \Magento\Store\Model\StoreManagerInterface
-     */
-    protected $storeManager;
-
-    /**
      * @var \Moosend\TrackerFactory
      */
     protected $trackerFactory;
@@ -69,7 +63,6 @@ class TrackPageView extends Template
         Http $request,
         ProductFactory $productFactory,
         SessionFactory $sessionFactory,
-        StoreManagerInterface $storeManager,
         TrackerFactory $trackerFactory,
         Data $helper,
         array $data = array()
@@ -78,7 +71,6 @@ class TrackPageView extends Template
         $this->request = $request;
         $this->productFactory = $productFactory;
         $this->sessionFactory = $sessionFactory;
-        $this->storeManager = $storeManager;
         $this->trackerFactory = $trackerFactory;
         $this->helper = $helper;
         parent::__construct($context, $data);
@@ -121,7 +113,7 @@ class TrackPageView extends Template
     {
         $product_id = $this->getCurrentProductId();
         $product = $this->productFactory->create()->load($product_id);
-        $store = $this->storeManager->getStore();
+        $store = $this->_storeManager->getStore();
         $productImageUrl = $store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'catalog/product' . $product->getImage();
 
         $properties = array(
