@@ -11,4 +11,7 @@
     <event name="checkout_onepage_controller_success_action">
         <observer name="moo_checkout_onepage_controller_success_action" instance="Moosend\WebsiteTracking\Observer\CheckoutOnepageControllerSuccessObserver"/>
     </event>
+    <event name="sales_quote_remove_item">
+        <observer name="moo_sales_quote_remove_item" instance="Moosend\WebsiteTracking\Observer\CheckoutCartRemoveProductObserver"/>
+    </event>
 </config>
