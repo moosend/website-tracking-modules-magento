@@ -72,6 +72,6 @@ class CheckoutCartRemoveProductObserver implements ObserverInterface
         $props = $this->helper->formatProductOptions($productConfigurations);
         $props['itemCategory'] = $this->helper->getProductCategoryNames($product->getCategoryIds());
 
-        $tracker->removeFromOrder($id, $price, $url, $total, $name, $image, $props, true);
+        $tracker->removeFromOrder($id, $price, $url, $total, $name, $image, $props, true)->wait();
     }
 }
