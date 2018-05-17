@@ -73,6 +73,6 @@ class CheckoutCartAddProductCompleteObserver implements ObserverInterface
         $props = $this->helper->formatProductOptions($productConfigurations);
         $props['itemCategory'] = $this->helper->getProductCategoryNames($product->getCategoryIds());
 
-        $tracker->addToOrder($id, $price, $url, $quantity, $total, $name, $image, $props, true);
+        $tracker->addToOrder($id, $price, $url, $quantity, $total, $name, $image, $props, true)->wait();
     }
 }
