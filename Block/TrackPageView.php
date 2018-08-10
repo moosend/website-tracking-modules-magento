@@ -168,23 +168,6 @@ class TrackPageView extends Template
 
     /**
      *
-     * @return void
-     */
-    public function initializeTracker()
-    {
-        $website_id = $this->_scopeConfig->getValue('mootracker_site_id_section/mootracker_group_site_id/mootracker_site_id', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-
-        if (empty($website_id)) {
-            return;
-        }
-
-        $tracker = $this->trackerFactory->create($website_id);
-
-        $tracker->init($website_id);
-    }
-
-    /**
-     *
      * @return array
      */
     public function getTrackingdata()
