@@ -146,6 +146,6 @@ class CheckoutOnepageControllerSuccessObserver implements ObserverInterface
         $props = $this->helper->formatProductOptions($productOptions);
         $props['itemCategory'] = $this->helper->getProductCategoryNames($product->getCategoryIds());
 
-        $trackerOrder->addProduct($id, $price, $url, $quantity, $total, $name, $image, $props, true)->wait();
+        $trackerOrder->addProduct($id, $price, $url, $quantity, $total, $name, $image, $props);
     }
 }
