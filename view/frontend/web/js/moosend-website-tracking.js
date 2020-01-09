@@ -26,7 +26,7 @@ define([], function () {
 
 		var data = config.data;
 
-		mootrack('setCookieNames', { userIdName: data.cookie_names.user_id, emailName: data.cookie_names.email });
+		mootrack('setCookieNames', { userIdName: data.cookie_names.user_id, email: data.cookie_names.email });
 
 		mootrack('init', data.current_website_id);
 
