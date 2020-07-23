@@ -34,6 +34,11 @@ class ResponseBeforeObserver implements ObserverInterface {
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer) {
+        if (headers_sent()) {
+            // As headers have already been sent, we cannot send any more
+            return;
+        }
+
         $website_id = $this->configInterface->getValue('mootracker_site_id_section/mootracker_group_site_id/mootracker_site_id');
         
         if (empty($website_id)) {
