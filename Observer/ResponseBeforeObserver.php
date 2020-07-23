@@ -4,26 +4,28 @@
  */
 namespace Moosend\WebsiteTracking\Observer;
 
-use \Magento\Framework\Event\ObserverInterface;
-use \Magento\Framework\App\Config\ScopeConfigInterface;
-use \Moosend\TrackerFactory;
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\Event\Observer;
+use Magento\Framework\Event\ObserverInterface;
+use Moosend\TrackerFactory;
 
-class ResponseBeforeObserver implements ObserverInterface {
+class ResponseBeforeObserver implements ObserverInterface
+{
 
     /**
      *
-     * @var \Magento\Framework\App\Config\ScopeConfigInterface
+     * @var ScopeConfigInterface
      */
     protected $configInterface;
 
     /**
      *
-     * @var \Moosend\TrackerFactory
+     * @var TrackerFactory
      */
     protected $trackerFactory;
 
     /**
-     * @param \Moosend\TrackerFactory $trackerFactory
+     * @param TrackerFactory $trackerFactory
      */
     public function __construct(
         ScopeConfigInterface $configInterface,
@@ -33,14 +35,17 @@ class ResponseBeforeObserver implements ObserverInterface {
         $this->trackerFactory = $trackerFactory;
     }
 
-    public function execute(\Magento\Framework\Event\Observer $observer) {
+    public function execute(Observer $observer)
+    {
         if (headers_sent()) {
             // As headers have already been sent, we cannot send any more
             return;
         }
 
-        $website_id = $this->configInterface->getValue('mootracker_site_id_section/mootracker_group_site_id/mootracker_site_id');
-        
+        $website_id = $this->configInterface->getValue(
+            'mootracker_site_id_section/mootracker_group_site_id/mootracker_site_id'
+        );
+
         if (empty($website_id)) {
             return;
         }
@@ -49,5 +54,4 @@ class ResponseBeforeObserver implements ObserverInterface {
 
         $tracker->init($website_id);
     }
-
 }
