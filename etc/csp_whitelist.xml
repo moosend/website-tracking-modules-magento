@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="moosend" type="host">*.stat-track.com</value>
+                <value id="moosend-poly" type="host">polyfill.io</value>
+		<value id="moosend-moo" type="host">*.moosend.com</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="moosend-track" type="host">*.stat-track.com</value>
+		<value id="moosend-forms" type="host">*.m-pages.com</value>
+		<value id="moosend-operations" type="host">*.m-operations.com</value>
+            </values>
+        </policy>
+	<policy id="style-src">
+            <values>
+                <value id="google-fonts" type="host">fonts.googleapis.com</value>
+                <value id="moosend" type="host">*.moosend.com</value>
+                <value id="bootstrap" type="host">*.bootstrapcdn.com</value>
+            </values>
+        </policy>
+	<policy id="img-src">
+            <values>
+                <value id="moosend-images" type="host">*.designer-images.net</value>
+            </values>
+        </policy>
+	<policy id="font-src">
+            <values>
+                <value id="moosend-fonts" type="host">fonts.gstatic.com</value>
+                <value id="moosend-bootstrap" type="host">*.bootstrapcdn.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>
