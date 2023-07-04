@@ -1,40 +1,40 @@
 {
-	  "name": "moosend/module-mootracker",
-	  "description": "Moosend Ecommerce & Marketing Automations Magento Module",
-	  "version": "1.0.13",
-	  "type": "magento2-module",
-	  "license": [
-		"OSL-3.0",
-		"AFL-3.0"
-	  ],
-	  "authors": [
-		{
-		  "name": "Yannis Psarras",
-		  "email": "yannis@moosend.com"
-		}
-	  ],
-	  "suggest": {
-		"magento/module-config": "101.0.*"
-	  },
-	  "require": {
-		"php": "^5.5 || ^7.0 || ^8.0",
-		"moosend/website-tracking": "^1.12"
-	  },
-	  "require-dev": {
-		"phpunit/phpunit": "^6.0"
-	  },
-	  "repositories": [
-		{
-		  "type": "composer",
-		  "url": "https://repo.magento.com/"
-		}
-	  ],
-	  "autoload": {
-		"files": [
-		  "registration.php"
-		],
-		"psr-4": {
-		  "Moosend\\WebsiteTracking\\": ""
-		}
-	  }
+  "name": "moosend/module-mootracker",
+  "description": "Moosend Ecommerce & Marketing Automations Magento Module",
+  "version": "1.0.13",
+  "type": "magento2-module",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Yannis Psarras",
+      "email": "yannis@moosend.com"
+    }
+  ],
+  "suggest": {
+    "magento/module-config": "101.0.*"
+  },
+  "require": {
+    "php": "^5.5 || ^7.0 || ^8.0",
+    "moosend/website-tracking": "^1.12"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.0"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Moosend\\WebsiteTracking\\": ""
+    }
+  }
 }
