@@ -64,7 +64,7 @@ class TrackPageViewTest extends \PHPUnit\Framework\TestCase
     private $dbValue = 'c8f580ff-4c69-4618-a6bc-81900f20d098';
 
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $objectManager = new ObjectManager($this);
         $this->scopeConfigMock = $this->getMockBuilder(\Magento\Framework\App\Config\ScopeConfigInterface::class)
