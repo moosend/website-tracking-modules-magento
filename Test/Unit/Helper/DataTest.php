@@ -16,7 +16,7 @@ class DataTest extends \PHPUnit\Framework\TestCase
      */
     private $categoryFactoryMock;
 
-    public function setUp()
+    public function setUp(): void
     {
         $objectManager = new ObjectManager($this);
         $this->categoryFactoryMock = $this->getMockBuilder(CategoryFactory::class)
