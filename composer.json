@@ -1,7 +1,7 @@
 {
   "name": "moosend/module-mootracker",
   "description": "Moosend Ecommerce & Marketing Automations Magento Module",
-  "version": "1.0.13",
+  "version": "1.0.15",
   "type": "magento2-module",
   "license": [
     "OSL-3.0",
